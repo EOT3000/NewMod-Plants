@@ -1,7 +1,7 @@
 package fly.plants.impl;
 
 import fly.newmod.NewMod;
-import fly.plants.base.Plant;
+import fly.plants.bases.Plant;
 import fly.plants.setup.PlantsAddonSetup;
 import org.bukkit.Location;
 import org.bukkit.Material;
