@@ -1,0 +1,5 @@
+name: PlantsModule
+main: fly.plants.Plants
+version: 1.0.0
+api-version: 1.13
+depend: [Mods]
