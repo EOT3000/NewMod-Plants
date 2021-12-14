@@ -17,7 +17,6 @@ public class PlantsAddonSetup {
     public static ModItem WITHERED_UNRIPE_TEA_LEAVES = new ModItem(Material.KELP, "&2Withered Unripe Tea Leaves", "withered_unripe_tea_leaves");
     public static ModItem WITHERED_RIPE_TEA_LEAVES = new ModItem(Material.KELP, "&2Withered Ripe Tea Leaves", "withered_ripe_tea_leaves");
 
-    //public static ModItem WITHERED_UNRIPE_TEA_LEAVES = new ModItem(Material.KELP, "&2Withered Unripe Tea Leaves", "withered_unripe_tea_leaves");
-    //public static ModItem WITHERED_RIPE_TEA_LEAVES = new ModItem(Material.KELP, "&2Withered Ripe Tea Leaves", "withered_ripe_tea_leaves");
+
 
 }

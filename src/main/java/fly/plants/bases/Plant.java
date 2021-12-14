@@ -8,6 +8,7 @@ import org.bukkit.block.Block;
 import org.bukkit.block.data.type.Leaves;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.world.StructureGrowEvent;
 
 import java.util.Arrays;
@@ -38,7 +39,7 @@ public class Plant extends ModItem implements Listener {
     }
 
     @Override
-    public void tick(Location location) {
+    public void tick(Location location, int count) {
         String data = NewMod.get().getBlockStorage().getData(location, "stage");
 
         if(data.isEmpty()) {
@@ -79,8 +80,8 @@ public class Plant extends ModItem implements Listener {
     }
 
     @Override
-    public void onPlace(Location location) {
-        NewMod.get().getBlockStorage().changeData(location, "stage", "1");
+    public void onPlace(BlockPlaceEvent event) {
+        NewMod.get().getBlockStorage().changeData(event.getBlock().getLocation(), "stage", "1");
     }
 
     @Override

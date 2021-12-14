@@ -5,15 +5,22 @@ import fly.plants.bases.Plant;
 import fly.plants.setup.PlantsAddonSetup;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Random;
+
 public class TeaPlant extends Plant {
+    private static Random random = new Random();
+
     public TeaPlant() {
         super(Material.OAK_SAPLING, Material.ACACIA_LEAVES, Material.JUNGLE_LEAVES, "&2Tea Plant", "tea_plant", 7200);
     }
 
     @Override
-    public void onBreak(Location location) {
+    public void onBreak(BlockBreakEvent event) {
+        Location location = event.getBlock().getLocation();
+
         String data = NewMod.get().getBlockStorage().getData(location, "stage");
         ItemStack stack = new ItemStack(Material.AIR);
 
@@ -32,6 +39,8 @@ public class TeaPlant extends Plant {
 
             stack = new ItemStack(PlantsAddonSetup.RIPE_TEA_LEAVES);
         }
+
+        stack.setAmount(random.nextInt(5));
 
         location.getBlock().setType(Material.OAK_SAPLING);
 
