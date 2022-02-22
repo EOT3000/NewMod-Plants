@@ -3,6 +3,8 @@ package fly.plants.impl;
 import fly.newmod.NewMod;
 import fly.plants.bases.Plant;
 import fly.plants.setup.PlantsAddonSetup;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -14,7 +16,7 @@ public class TeaPlant extends Plant {
     private static Random random = new Random();
 
     public TeaPlant() {
-        super(Material.OAK_SAPLING, Material.ACACIA_LEAVES, Material.JUNGLE_LEAVES, "&2Tea Plant", "tea_plant", 7200);
+        super(Material.OAK_SAPLING, Material.BIRCH_LEAVES, Material.FLOWERING_AZALEA_LEAVES, "Tea Plant", NamedTextColor.DARK_GREEN, "tea_plant", 7200);
     }
 
     @Override
@@ -39,8 +41,6 @@ public class TeaPlant extends Plant {
 
             stack = new ItemStack(PlantsAddonSetup.RIPE_TEA_LEAVES);
         }
-
-        stack.setAmount(random.nextInt(5));
 
         location.getBlock().setType(Material.OAK_SAPLING);
 

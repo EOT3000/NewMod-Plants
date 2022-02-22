@@ -2,6 +2,8 @@ package fly.plants.bases;
 
 import fly.newmod.NewMod;
 import fly.newmod.bases.ModItem;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -19,12 +21,12 @@ public class Plant extends ModItem implements Listener {
     private Random random = new Random();
 
     private final int ats;
-    private final  Material stage1;
+    private final Material stage1;
     private final Material stage2;
     private final Material stage3;
 
-    public Plant(Material stage1, Material stage2, Material stage3, String name, String id, int ats) {
-        super(stage1, name, id);
+    public Plant(Material stage1, Material stage2, Material stage3, String name, TextColor color, String id, int ats) {
+        super(stage1, name, color, id);
 
         this.stage1 = stage1;
         this.stage2 = stage2;
@@ -79,6 +81,18 @@ public class Plant extends ModItem implements Listener {
         }
     }
 
+    public Material getStage1() {
+        return stage1;
+    }
+
+    public Material getStage2() {
+        return stage2;
+    }
+
+    public Material getStage3() {
+        return stage3;
+    }
+
     @Override
     public void onPlace(BlockPlaceEvent event) {
         NewMod.get().getBlockStorage().changeData(event.getBlock().getLocation(), "stage", "1");
@@ -89,20 +103,5 @@ public class Plant extends ModItem implements Listener {
         return NewMod.get().getBlockStorage().getData(location, "stage").equalsIgnoreCase("1");
     }
 
-    @EventHandler
-    public void onGrow(StructureGrowEvent event) {
-        if (isPlant(event.getLocation())) {
-            event.setCancelled(true);
-        }
-    }
 
-    private boolean isPlant(Location location) {
-        String data = NewMod.get().getBlockStorage().getData(location, "id");
-
-        if(NewMod.get().getBlockStorage().getType(data) instanceof Plant) {
-            return true;
-        }
-
-        return false;
-    }
 }
