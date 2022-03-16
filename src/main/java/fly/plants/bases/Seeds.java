@@ -75,7 +75,7 @@ public class Seeds extends ModItem implements Listener {
 
         Random random = new Random();
 
-        if(random.nextDouble() < 0.1) {
+        if(random.nextDouble() < 0.01 && random.nextDouble() < 0.01) {
             ageable.setAge(ageable.getAge()+1);
 
             storage.changeData(location, "age", String.valueOf(ageable.getAge()));

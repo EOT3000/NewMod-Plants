@@ -29,6 +29,11 @@ public class PlantsListener implements Listener {
 
     private boolean isPlant(Location location) {
         String data = NewMod.get().getBlockStorage().getData(location, "id");
+
+        if(data.isEmpty()) {
+            return false;
+        }
+
         ItemStack item = NewMod.get().getBlockStorage().getType(data);
 
         if(item instanceof Plant || item instanceof Seeds) {
