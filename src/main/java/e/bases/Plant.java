@@ -1,4 +1,4 @@
-package fly.plants.bases;
+package e.bases;
 
 import fly.newmod.NewMod;
 import fly.newmod.bases.ModItem;
@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Plant extends ModItem implements Listener {
-    private Random random = new Random();
+    protected Random random = new Random();
 
     private final int ats;
     private final Material stage1;
@@ -50,15 +50,23 @@ public class Plant extends ModItem implements Listener {
 
         if(random.nextInt(3000) == 1) {
             if (data.equalsIgnoreCase("1")) {
+                boolean d = onGrow(location, 2);
+
+                if(!d) {
+                    return;
+                }
+
                 Block block = location.getBlock();
 
                 block.setType(stage2);
 
-                Leaves leaves = (Leaves) block.getBlockData();
 
-                leaves.setPersistent(true);
+                // You can do this in java now apparently ¯\_(ツ)_/¯
+                if(block.getBlockData() instanceof Leaves leaves) {
+                    leaves.setPersistent(true);
 
-                block.setBlockData(leaves);
+                    block.setBlockData(leaves);
+                }
 
                 NewMod.get().getBlockStorage().changeData(location, "stage", "2");
 
@@ -66,15 +74,22 @@ public class Plant extends ModItem implements Listener {
             }
 
             if (data.equalsIgnoreCase("2")) {
+                boolean d = onGrow(location, 2);
+
+                if(!d) {
+                    return;
+                }
+
                 Block block = location.getBlock();
 
                 block.setType(stage3);
 
-                Leaves leaves = (Leaves) block.getBlockData();
+                // You can do this in java now apparently ¯\_(ツ)_/¯
+                if(block.getBlockData() instanceof Leaves leaves) {
+                    leaves.setPersistent(true);
 
-                leaves.setPersistent(true);
-
-                block.setBlockData(leaves);
+                    block.setBlockData(leaves);
+                }
 
                 NewMod.get().getBlockStorage().changeData(location, "stage", "3");
             }
@@ -103,5 +118,7 @@ public class Plant extends ModItem implements Listener {
         return NewMod.get().getBlockStorage().getData(location, "stage").equalsIgnoreCase("1");
     }
 
-
+    protected boolean onGrow(Location location, int newStage) {
+        return true;
+    }
 }

@@ -1,9 +1,9 @@
-package fly.plants;
+package e;
 
-import e.impl.listeners.PlantsListener;
-import e.setup.PlantsAddonSetup;
 import fly.newmod.NewMod;
 import fly.plants.blocks.data.AgeableModBlockDataImpl;
+import e.impl.listeners.PlantsListener;
+import e.setup.PlantsAddonSetup;
 import org.bukkit.Bukkit;
 
 public class PlantsPlugin extends NewMod.ModExtension {
@@ -19,7 +19,7 @@ public class PlantsPlugin extends NewMod.ModExtension {
         Bukkit.getPluginManager().registerEvents(new PlantsListener(), this);
     }
 
-    public static e.PlantsPlugin get() {
+    public static PlantsPlugin get() {
 
     }
 }

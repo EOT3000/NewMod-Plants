@@ -1,9 +1,8 @@
-package fly.plants.impl;
+package e.impl.plants.tea;
 
+import e.bases.Plant;
+import e.setup.PlantsAddonSetup;
 import fly.newmod.NewMod;
-import fly.plants.bases.Plant;
-import fly.plants.setup.PlantsAddonSetup;
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Location;
 import org.bukkit.Material;

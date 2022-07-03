@@ -1,8 +1,8 @@
-package fly.plants.impl;
+package e.impl.plants.tea;
 
+import e.PlantsPlugin;
+import e.setup.PlantsAddonSetup;
 import fly.newmod.bases.ModItem;
-import fly.plants.PlantsPlugin;
-import fly.plants.setup.PlantsAddonSetup;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Color;
@@ -35,14 +35,14 @@ public class Tea extends ModItem {
 
             addRecipe(recipe);
 
+            this.color = color;
+
             ShapelessRecipe liquid = new ShapelessRecipe(new NamespacedKey(PlantsPlugin.getPlugin(PlantsPlugin.class), id + "_liquid"), getLiquidTeaVariant());
 
             liquid.addIngredient(this);
             liquid.addIngredient(Material.POTION);
 
             addRecipe(liquid);
-
-            this.color = color;
         }
 
         public ItemStack getLiquidTeaVariant() {

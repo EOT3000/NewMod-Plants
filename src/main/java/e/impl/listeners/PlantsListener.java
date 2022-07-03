@@ -1,11 +1,10 @@
-package fly.plants.impl.listeners;
+package e.impl.listeners;
 
+import e.bases.Plant;
 import fly.newmod.NewMod;
 import fly.newmod.bases.ModItem;
-import fly.plants.bases.Plant;
-import fly.plants.bases.Seeds;
+import e.bases.SeedsItem;
 import org.bukkit.Location;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockGrowEvent;
@@ -36,7 +35,7 @@ public class PlantsListener implements Listener {
 
         ItemStack item = NewMod.get().getBlockStorage().getType(data);
 
-        if(item instanceof Plant || item instanceof Seeds) {
+        if(item instanceof Plant || item instanceof SeedsItem) {
             return true;
         }
 

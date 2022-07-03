@@ -1,24 +1,29 @@
-package fly.plants.impl;
+package e.impl.plants.tea;
 
 import fly.newmod.NewMod;
-import fly.newmod.bases.ModItem;
-import fly.newmod.setup.BlockStorage;
+import fly.newmod.api.item.type.ModItemType;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.type.Leaves;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Random;
 
-public class UnwitheredTeaLeaf extends ModItem {
+public class UnwitheredTeaLeaf extends ModItemType {
     private static Random random = new Random();
 
-    private ModItem withered;
+    private ModItemType withered;
 
-    public UnwitheredTeaLeaf(Material material, String name, int color, String id, ModItem withered) {
-        super(material, name, color, id);
+    public UnwitheredTeaLeaf(Material material, String name, int color, String id, JavaPlugin plugin, ModItemType withered) {
+        super(material, new NamespacedKey(plugin, id));
+
+        name(name, color);
 
         this.withered = withered;
+
+        NewMod.get().getItemManager().registerItem(this);
     }
 
     @Override
