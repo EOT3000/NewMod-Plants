@@ -7,6 +7,12 @@ import fly.plants.blocks.data.AgeableModBlockDataImpl;
 import org.bukkit.Bukkit;
 
 public class PlantsPlugin extends NewMod.ModExtension {
+    private static PlantsPlugin INSTANCE;
+
+    public PlantsPlugin() {
+        INSTANCE = this;
+    }
+
     @Override
     public void load() {
         new AgeableModBlockDataImpl.AgeableModBlockDataSerializer();
@@ -19,7 +25,7 @@ public class PlantsPlugin extends NewMod.ModExtension {
         Bukkit.getPluginManager().registerEvents(new PlantsListener(), this);
     }
 
-    public static e.PlantsPlugin get() {
-
+    public static PlantsPlugin get() {
+        return INSTANCE;
     }
 }

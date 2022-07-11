@@ -1,6 +1,8 @@
 package fly.plants.blocks.plants;
 
+import fly.newmod.NewMod;
 import fly.newmod.api.block.ModBlock;
+import fly.newmod.api.block.type.ModBlockType;
 import fly.newmod.api.event.ItemEventsListener;
 import fly.newmod.api.event.both.ModBlockItemUseEvent;
 import fly.newmod.api.item.type.ModItemType;
@@ -11,8 +13,17 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 
 public class SeedsItem extends ModItemType {
-    public SeedsItem(Material defaultMaterial, NamespacedKey id) {
+    public SeedsItem(Material defaultMaterial, NamespacedKey id, ModBlockType plant) {
         super(defaultMaterial, id);
+
+        setListener(new SeedsItemListener());
+
+        PrePlantBlock block = new PrePlantBlock(this, plant);
+
+        setBlock(block);
+
+        NewMod.get().getBlockManager().registerBlock(block);
+        NewMod.get().getItemManager().registerItem(this);
     }
 
     public static class SeedsItemListener implements ItemEventsListener {
