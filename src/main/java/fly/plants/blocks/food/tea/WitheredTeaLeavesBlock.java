@@ -1,4 +1,4 @@
-package fly.plants.blocks.food.tea;
+/*package fly.plants.blocks.food.tea;
 
 import fly.newmod.NewMod;
 import fly.newmod.api.block.type.ModBlockType;
@@ -29,7 +29,7 @@ public class WitheredTeaLeavesBlock extends ModBlockType {
         setListener(new BlockEventsListener() {
             @Override
             public void onBlockBreakHighest(ModBlockBreakEvent event) {
-                event.setDropModItem(false);
+                event.setVanillaDrop(false);
             }
 
             @Override
@@ -59,3 +59,4 @@ public class WitheredTeaLeavesBlock extends ModBlockType {
         return max;
     }
 }
+*/

@@ -1,9 +1,9 @@
 package fly.plants;
 
-import e.impl.listeners.PlantsListener;
-import e.setup.PlantsAddonSetup;
 import fly.newmod.NewMod;
 import fly.plants.blocks.data.AgeableModBlockDataImpl;
+import fly.plants.listeners.PlantsListener;
+import fly.plants.setup.PlantsAddonSetup;
 import org.bukkit.Bukkit;
 
 public class PlantsPlugin extends NewMod.ModExtension {

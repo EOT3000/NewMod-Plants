@@ -1,11 +1,13 @@
-package fly.plants.blocks.food.tea;
+/*package fly.plants.blocks.food.tea;
 
 import fly.newmod.NewMod;
 import fly.newmod.api.block.ModBlock;
 import fly.newmod.api.block.type.ModBlockType;
+import fly.newmod.api.event.BlockEventsListener;
 import fly.newmod.api.event.block.ModBlockTickEvent;
 import fly.newmod.api.item.type.ModItemType;
 import fly.plants.blocks.plants.complex.MultiStagePlant;
+import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -17,8 +19,10 @@ import java.util.Random;
 public class UnwitheredTeaLeavesItem extends ModItemType {
     private final ModBlockType block;
 
-    public UnwitheredTeaLeavesItem(ModBlockType turn, Material def, NamespacedKey key) {
+    public UnwitheredTeaLeavesItem(ModBlockType turn, Material def, NamespacedKey key, String name, TextColor color) {
         super(def, key);
+
+        name(name, color);
 
         this.block = turn;
 
@@ -35,6 +39,13 @@ public class UnwitheredTeaLeavesItem extends ModItemType {
             super(item.defaultMaterial, item.id);
 
             this.item = item;
+
+            setListener(new BlockEventsListener() {
+                @Override
+                public void onBlockTick(ModBlockTickEvent event) {
+                    tick(event);
+                }
+            });
         }
 
         @Override
@@ -62,3 +73,4 @@ public class UnwitheredTeaLeavesItem extends ModItemType {
         }
     }
 }
+*/
