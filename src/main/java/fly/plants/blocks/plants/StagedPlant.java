@@ -7,7 +7,6 @@ import fly.newmod.api.block.type.ModBlockType;
 import fly.newmod.api.event.BlockEventsListener;
 import fly.newmod.api.event.block.ModBlockTickEvent;
 import fly.newmod.utils.Pair;
-import fly.plants.PlantsPlugin;
 import fly.plants.blocks.data.AgeableModBlockData;
 import fly.plants.blocks.plants.stage.PlantStage;
 import org.bukkit.Material;
@@ -15,7 +14,6 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Ageable;
 import org.bukkit.block.data.type.Leaves;
-import org.bukkit.block.data.type.Sapling;
 
 public class StagedPlant extends ModBlockType {
     private PlantStage[] stages;
@@ -62,9 +60,12 @@ public class StagedPlant extends ModBlockType {
         if(nstage.shouldPlace(event.getBlock(), event.getModBlock())) {
             nstage.place(event.getBlock(), event.getModBlock());
 
-            data.setTicks(data.getTicks()+1);
             data.setAge(data.getAge()+1);
+            data.setStageTicks(0);
         }
+
+        data.setTotalTicks(data.getTotalTicks()+1);
+        data.setStageTicks(data.getStageTicks()+1);
     }
 
     @Override

@@ -3,9 +3,13 @@ package fly.plants.blocks.data;
 import fly.newmod.api.block.data.ModBlockData;
 
 public interface AgeableModBlockData extends ModBlockData {
-    long getTicks();
+    long getTotalTicks();
 
-    void setTicks(long ticks);
+    void setTotalTicks(long ticks);
+
+    long getStageTicks();
+
+    void setStageTicks(long ticks);
 
     int getAge();
 

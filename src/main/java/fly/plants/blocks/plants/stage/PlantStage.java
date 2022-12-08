@@ -23,7 +23,7 @@ public abstract class PlantStage {
         AgeableModBlockData data = (AgeableModBlockData) modBlock.getData();
 
         double dis = (block.getLightFromSky()/15.0)*light(block.getWorld().getTime());
-        long time = data.getTicks();
+        long time = data.getStageTicks();
 
         for(Pair<Integer, Float> interval : times) {
             if(interval.getValue() < time) {
