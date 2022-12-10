@@ -66,11 +66,16 @@ public class StagedPlant extends ModBlockType {
 
         data.setTotalTicks(data.getTotalTicks()+1);
         data.setStageTicks(data.getStageTicks()+1);
+
+        event.getModBlock().setData(data);
+        event.getModBlock().update();
     }
 
     @Override
     public void place(Block block, ModBlock modBlock) {
+        AgeableModBlockData data = (AgeableModBlockData) modBlock.getData();
 
+        getStage(data.getAge()).place(block, modBlock);
     }
 
     @SafeVarargs

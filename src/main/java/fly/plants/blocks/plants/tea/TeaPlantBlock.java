@@ -5,6 +5,7 @@ import fly.newmod.api.event.block.ModBlockBreakEvent;
 import fly.newmod.utils.Pair;
 import fly.plants.PlantsPlugin;
 import fly.plants.blocks.data.AgeableModBlockData;
+import fly.plants.blocks.data.AgeableModBlockDataImpl;
 import fly.plants.blocks.plants.StagedPlant;
 import fly.plants.setup.PlantsAddonSetup;
 import org.bukkit.Material;
@@ -18,7 +19,7 @@ public class TeaPlantBlock extends StagedPlant {
     };
 
     public TeaPlantBlock() {
-        super(Material.OAK_SAPLING, new NamespacedKey(PlantsPlugin.get(), "tea_plant"), AgeableModBlockData.class, stem(1),
+        super(Material.OAK_SAPLING, new NamespacedKey(PlantsPlugin.get(), "tea_plant"), AgeableModBlockDataImpl.class, stem(1),
                 stem(2, TIMES), stem(3, TIMES), stem(4, TIMES),
                 stem(5, TIMES), stem(6, TIMES), stem(7, TIMES),
                 sapling(TIMES), block(Material.AZALEA_LEAVES), block(Material.FLOWERING_AZALEA_LEAVES));
